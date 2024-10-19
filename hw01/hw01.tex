@@ -1,0 +1,463 @@
+% Options for packages loaded elsewhere
+\PassOptionsToPackage{unicode}{hyperref}
+\PassOptionsToPackage{hyphens}{url}
+%
+\documentclass[
+]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{iftex}
+\ifPDFTeX
+  \usepackage[T1]{fontenc}
+  \usepackage[utf8]{inputenc}
+  \usepackage{textcomp} % provide euro and other symbols
+\else % if luatex or xetex
+  \usepackage{unicode-math} % this also loads fontspec
+  \defaultfontfeatures{Scale=MatchLowercase}
+  \defaultfontfeatures[\rmfamily]{Ligatures=TeX,Scale=1}
+\fi
+\usepackage{lmodern}
+\ifPDFTeX\else
+  % xetex/luatex font selection
+\fi
+% Use upquote if available, for straight quotes in verbatim environments
+\IfFileExists{upquote.sty}{\usepackage{upquote}}{}
+\IfFileExists{microtype.sty}{% use microtype if available
+  \usepackage[]{microtype}
+  \UseMicrotypeSet[protrusion]{basicmath} % disable protrusion for tt fonts
+}{}
+\makeatletter
+\@ifundefined{KOMAClassName}{% if non-KOMA class
+  \IfFileExists{parskip.sty}{%
+    \usepackage{parskip}
+  }{% else
+    \setlength{\parindent}{0pt}
+    \setlength{\parskip}{6pt plus 2pt minus 1pt}}
+}{% if KOMA class
+  \KOMAoptions{parskip=half}}
+\makeatother
+\usepackage{xcolor}
+\usepackage[margin=1in]{geometry}
+\usepackage{color}
+\usepackage{fancyvrb}
+\newcommand{\VerbBar}{|}
+\newcommand{\VERB}{\Verb[commandchars=\\\{\}]}
+\DefineVerbatimEnvironment{Highlighting}{Verbatim}{commandchars=\\\{\}}
+% Add ',fontsize=\small' for more characters per line
+\usepackage{framed}
+\definecolor{shadecolor}{RGB}{248,248,248}
+\newenvironment{Shaded}{\begin{snugshade}}{\end{snugshade}}
+\newcommand{\AlertTok}[1]{\textcolor[rgb]{0.94,0.16,0.16}{#1}}
+\newcommand{\AnnotationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\AttributeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\BaseNTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\BuiltInTok}[1]{#1}
+\newcommand{\CharTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\CommentTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\CommentVarTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ConstantTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\ControlFlowTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\DataTypeTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{#1}}
+\newcommand{\DecValTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\DocumentationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\ErrorTok}[1]{\textcolor[rgb]{0.64,0.00,0.00}{\textbf{#1}}}
+\newcommand{\ExtensionTok}[1]{#1}
+\newcommand{\FloatTok}[1]{\textcolor[rgb]{0.00,0.00,0.81}{#1}}
+\newcommand{\FunctionTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\ImportTok}[1]{#1}
+\newcommand{\InformationTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\newcommand{\KeywordTok}[1]{\textcolor[rgb]{0.13,0.29,0.53}{\textbf{#1}}}
+\newcommand{\NormalTok}[1]{#1}
+\newcommand{\OperatorTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\OtherTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{#1}}
+\newcommand{\PreprocessorTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textit{#1}}}
+\newcommand{\RegionMarkerTok}[1]{#1}
+\newcommand{\SpecialCharTok}[1]{\textcolor[rgb]{0.81,0.36,0.00}{\textbf{#1}}}
+\newcommand{\SpecialStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\StringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\VariableTok}[1]{\textcolor[rgb]{0.00,0.00,0.00}{#1}}
+\newcommand{\VerbatimStringTok}[1]{\textcolor[rgb]{0.31,0.60,0.02}{#1}}
+\newcommand{\WarningTok}[1]{\textcolor[rgb]{0.56,0.35,0.01}{\textbf{\textit{#1}}}}
+\usepackage{graphicx}
+\makeatletter
+\def\maxwidth{\ifdim\Gin@nat@width>\linewidth\linewidth\else\Gin@nat@width\fi}
+\def\maxheight{\ifdim\Gin@nat@height>\textheight\textheight\else\Gin@nat@height\fi}
+\makeatother
+% Scale images if necessary, so that they will not overflow the page
+% margins by default, and it is still possible to overwrite the defaults
+% using explicit options in \includegraphics[width, height, ...]{}
+\setkeys{Gin}{width=\maxwidth,height=\maxheight,keepaspectratio}
+% Set default figure placement to htbp
+\makeatletter
+\def\fps@figure{htbp}
+\makeatother
+\setlength{\emergencystretch}{3em} % prevent overfull lines
+\providecommand{\tightlist}{%
+  \setlength{\itemsep}{0pt}\setlength{\parskip}{0pt}}
+\setcounter{secnumdepth}{-\maxdimen} % remove section numbering
+\ifLuaTeX
+  \usepackage{selnolig}  % disable illegal ligatures
+\fi
+\usepackage{bookmark}
+\IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
+\urlstyle{same}
+\hypersetup{
+  pdftitle={hw01},
+  pdfauthor={Chufarov Konstantin},
+  hidelinks,
+  pdfcreator={LaTeX via pandoc}}
+
+\title{hw01}
+\author{Chufarov Konstantin}
+\date{2024-10-19}
+
+\begin{document}
+\maketitle
+
+\subsection{Анализ данных: дождевые
+осадки}\label{ux430ux43dux430ux43bux438ux437-ux434ux430ux43dux43dux44bux445-ux434ux43eux436ux434ux435ux432ux44bux435-ux43eux441ux430ux434ux43aux438}
+
+\subsubsection{Загрузка
+данных}\label{ux437ux430ux433ux440ux443ux437ux43aux430-ux434ux430ux43dux43dux44bux445}
+
+Для начала загрузим набор данных о количестве осадков в Канаде за период
+с 1960 по 1980 годы, используя функцию \texttt{read.table()}. Назовем
+датафрейм \texttt{rainfall\_data}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rainfall\_data }\OtherTok{\textless{}{-}} \FunctionTok{read.table}\NormalTok{(}\StringTok{"https://people.math.umass.edu/\textasciitilde{}anna/Stat597AFall2016/rnf6080.dat"}\NormalTok{)}
+\FunctionTok{cat}\NormalTok{(}\StringTok{"Число строк в таблице: "}\NormalTok{, }\FunctionTok{nrow}\NormalTok{(rainfall\_data))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## Число строк в таблице:  5070
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{cat}\NormalTok{(}\StringTok{"}\SpecialCharTok{\textbackslash{}n}\StringTok{Число столбцов в таблице: "}\NormalTok{, }\FunctionTok{ncol}\NormalTok{(rainfall\_data))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## 
+## Число столбцов в таблице:  27
+\end{verbatim}
+
+\subsubsection{Имена
+колонок}\label{ux438ux43cux435ux43dux430-ux43aux43eux43bux43eux43dux43eux43a}
+
+Получим список названий столбцов для анализа структуры данных.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{colnames}\NormalTok{(rainfall\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] "V1"  "V2"  "V3"  "V4"  "V5"  "V6"  "V7"  "V8"  "V9"  "V10" "V11" "V12"
+## [13] "V13" "V14" "V15" "V16" "V17" "V18" "V19" "V20" "V21" "V22" "V23" "V24"
+## [25] "V25" "V26" "V27"
+\end{verbatim}
+
+\subsubsection{Доступ к
+элементам}\label{ux434ux43eux441ux442ux443ux43f-ux43a-ux44dux43bux435ux43cux435ux43dux442ux430ux43c}
+
+Получим значение из 5-й строки и 7-го столбца, чтобы убедиться, что
+данные загружены правильно.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rainfall\_data[}\DecValTok{5}\NormalTok{, }\DecValTok{7}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 0
+\end{verbatim}
+
+Также выведем на экран вторую строку таблицы.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rainfall\_data[}\DecValTok{2}\NormalTok{, ]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   V1 V2 V3 V4 V5 V6 V7 V8 V9 V10 V11 V12 V13 V14 V15 V16 V17 V18 V19 V20 V21
+## 2 60  4  2  0  0  0  0  0  0   0   0   0   0   0   0   0   0   0   0   0   0
+##   V22 V23 V24 V25 V26 V27
+## 2   0   0   0   0   0   0
+\end{verbatim}
+
+\subsubsection{Замена
+заголовков}\label{ux437ux430ux43cux435ux43dux430-ux437ux430ux433ux43eux43bux43eux432ux43aux43eux432}
+
+Теперь заменим имена столбцов на более удобные для анализа.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{names}\NormalTok{(rainfall\_data) }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"year"}\NormalTok{, }\StringTok{"month"}\NormalTok{, }\StringTok{"day"}\NormalTok{, }\FunctionTok{seq}\NormalTok{(}\DecValTok{0}\NormalTok{, }\DecValTok{23}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+Посмотрим, как выглядят первые и последние строки таблицы, используя
+\texttt{head()} и \texttt{tail()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{head}\NormalTok{(rainfall\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   year month day 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## 1   60     4   1 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 2   60     4   2 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 3   60     4   3 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 4   60     4   4 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5   60     4   5 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 6   60     4   6 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{tail}\NormalTok{(rainfall\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##      year month day 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22
+## 5065   80    11  25 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5066   80    11  26 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5067   80    11  27 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5068   80    11  28 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5069   80    11  29 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5070   80    11  30 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0
+##      23
+## 5065  0
+## 5066  0
+## 5067  0
+## 5068  0
+## 5069  0
+## 5070  0
+\end{verbatim}
+
+\subsubsection{Добавление столбца с суточными
+осадками}\label{ux434ux43eux431ux430ux432ux43bux435ux43dux438ux435-ux441ux442ux43eux43bux431ux446ux430-ux441-ux441ux443ux442ux43eux447ux43dux44bux43cux438-ux43eux441ux430ux434ux43aux430ux43cux438}
+
+Добавим новый столбец \texttt{daily}, который будет содержать сумму
+значений осадков за каждый день.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{rainfall\_data}\SpecialCharTok{$}\NormalTok{daily }\OtherTok{\textless{}{-}} \FunctionTok{rowSums}\NormalTok{(rainfall\_data[, }\DecValTok{4}\SpecialCharTok{:}\DecValTok{27}\NormalTok{])}
+\FunctionTok{head}\NormalTok{(rainfall\_data)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   year month day 0 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23
+## 1   60     4   1 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 2   60     4   2 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 3   60     4   3 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 4   60     4   4 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 5   60     4   5 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+## 6   60     4   6 0 0 0 0 0 0 0 0 0 0  0  0  0  0  0  0  0  0  0  0  0  0  0  0
+##   daily
+## 1     0
+## 2     0
+## 3     0
+## 4     0
+## 5     0
+## 6     0
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{hist}\NormalTok{(rainfall\_data}\SpecialCharTok{$}\NormalTok{daily, }\AttributeTok{main =} \StringTok{"Распределение осадков за день"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Осадки"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Частота"}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{hw01_files/figure-latex/unnamed-chunk-7-1.pdf}
+
+Мы видим, что в таблице есть некорректные значения, такие как -999,
+которые необходимо исключить.
+
+\subsubsection{Исправление
+ошибки}\label{ux438ux441ux43fux440ux430ux432ux43bux435ux43dux438ux435-ux43eux448ux438ux431ux43aux438}
+
+Создадим новый датафрейм, в котором будут удалены некорректные данные.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{cleaned\_data }\OtherTok{\textless{}{-}}\NormalTok{ rainfall\_data[rainfall\_data}\SpecialCharTok{$}\NormalTok{daily }\SpecialCharTok{\textgreater{}} \DecValTok{0}\NormalTok{, ]}
+\FunctionTok{hist}\NormalTok{(cleaned\_data}\SpecialCharTok{$}\NormalTok{daily, }\AttributeTok{main =} \StringTok{"Скорректированное распределение осадков"}\NormalTok{, }\AttributeTok{xlab =} \StringTok{"Осадки"}\NormalTok{, }\AttributeTok{ylab =} \StringTok{"Частота"}\NormalTok{, }\AttributeTok{breaks =} \DecValTok{80}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\includegraphics{hw01_files/figure-latex/unnamed-chunk-8-1.pdf}
+
+\subsubsection{Работа с
+векторами}\label{ux440ux430ux431ux43eux442ux430-ux441-ux432ux435ux43aux442ux43eux440ux430ux43cux438}
+
+\paragraph{Пример 1: Вектор
+строк}\label{ux43fux440ux438ux43cux435ux440-1-ux432ux435ux43aux442ux43eux440-ux441ux442ux440ux43eux43a}
+
+Попробуем применить различные функции к строковому вектору.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"4"}\NormalTok{, }\StringTok{"8"}\NormalTok{, }\StringTok{"15"}\NormalTok{, }\StringTok{"16"}\NormalTok{, }\StringTok{"23"}\NormalTok{, }\StringTok{"42"}\NormalTok{)}
+\NormalTok{v\_numeric }\OtherTok{\textless{}{-}} \FunctionTok{as.numeric}\NormalTok{(v)}
+\FunctionTok{max}\NormalTok{(v\_numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 42
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sort}\NormalTok{(v\_numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1]  4  8 15 16 23 42
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{sum}\NormalTok{(v\_numeric)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 108
+\end{verbatim}
+
+\paragraph{Пример 2: Вектор с элементами разных
+типов}\label{ux43fux440ux438ux43cux435ux440-2-ux432ux435ux43aux442ux43eux440-ux441-ux44dux43bux435ux43cux435ux43dux442ux430ux43cux438-ux440ux430ux437ux43dux44bux445-ux442ux438ux43fux43eux432}
+
+Рассмотрим смешанный тип данных. Сложение вызовет ошибку. Вектор
+смешанного типа автоматически преобразуется в строковый.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{v2 }\OtherTok{\textless{}{-}} \FunctionTok{c}\NormalTok{(}\StringTok{"5"}\NormalTok{, }\DecValTok{7}\NormalTok{, }\DecValTok{12}\NormalTok{)}
+\CommentTok{\# v2[2] + v2[3]}
+\end{Highlighting}
+\end{Shaded}
+
+\paragraph{Пример 3: Работа с
+датафреймом}\label{ux43fux440ux438ux43cux435ux440-3-ux440ux430ux431ux43eux442ux430-ux441-ux434ux430ux442ux430ux444ux440ux435ux439ux43cux43eux43c}
+
+Произведём вычисления с элементами датафрейма.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{df3 }\OtherTok{\textless{}{-}} \FunctionTok{data.frame}\NormalTok{(}\AttributeTok{z1=}\StringTok{"5"}\NormalTok{, }\AttributeTok{z2 =} \DecValTok{7}\NormalTok{, }\AttributeTok{z3 =} \DecValTok{12}\NormalTok{)}
+\NormalTok{df3[}\DecValTok{1}\NormalTok{, }\DecValTok{2}\NormalTok{] }\SpecialCharTok{+}\NormalTok{ df3[}\DecValTok{1}\NormalTok{, }\DecValTok{3}\NormalTok{]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 19
+\end{verbatim}
+
+\paragraph{Пример 4: Операции со
+списком}\label{ux43fux440ux438ux43cux435ux440-4-ux43eux43fux435ux440ux430ux446ux438ux438-ux441ux43e-ux441ux43fux438ux441ux43aux43eux43c}
+
+Работаем со списками:
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{l4 }\OtherTok{\textless{}{-}} \FunctionTok{list}\NormalTok{(}\AttributeTok{z1=}\StringTok{"6"}\NormalTok{, }\AttributeTok{z2=}\DecValTok{42}\NormalTok{, }\AttributeTok{z3=}\StringTok{"49"}\NormalTok{, }\AttributeTok{z4=}\DecValTok{126}\NormalTok{)}
+\NormalTok{l4[[}\DecValTok{2}\NormalTok{]] }\SpecialCharTok{+}\NormalTok{ l4[[}\DecValTok{4}\NormalTok{]]}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## [1] 168
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# l4[2] + l4[4]}
+\end{Highlighting}
+\end{Shaded}
+
+Второе выражение вызовет ошибку, так как обращение l4{[}2{]} и l4{[}4{]}
+возвращает список, а не числовые значения.
+
+\subsubsection{Операторы и
+функции}\label{ux43eux43fux435ux440ux430ux442ux43eux440ux44b-ux438-ux444ux443ux43dux43aux446ux438ux438}
+
+\paragraph{Последовательность
+чисел}\label{ux43fux43eux441ux43bux435ux434ux43eux432ux430ux442ux435ux43bux44cux43dux43eux441ux442ux44c-ux447ux438ux441ux435ux43b}
+
+Создадим последовательность чисел при помощи функции \texttt{seq()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10000}\NormalTok{, }\AttributeTok{by=}\DecValTok{372}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]    1  373  745 1117 1489 1861 2233 2605 2977 3349 3721 4093 4465 4837 5209
+## [16] 5581 5953 6325 6697 7069 7441 7813 8185 8557 8929 9301 9673
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{seq}\NormalTok{(}\DecValTok{1}\NormalTok{, }\DecValTok{10000}\NormalTok{, }\AttributeTok{length.out=}\DecValTok{50}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1]     1.0000   205.0612   409.1224   613.1837   817.2449  1021.3061
+##  [7]  1225.3673  1429.4286  1633.4898  1837.5510  2041.6122  2245.6735
+## [13]  2449.7347  2653.7959  2857.8571  3061.9184  3265.9796  3470.0408
+## [19]  3674.1020  3878.1633  4082.2245  4286.2857  4490.3469  4694.4082
+## [25]  4898.4694  5102.5306  5306.5918  5510.6531  5714.7143  5918.7755
+## [31]  6122.8367  6326.8980  6530.9592  6735.0204  6939.0816  7143.1429
+## [37]  7347.2041  7551.2653  7755.3265  7959.3878  8163.4490  8367.5102
+## [43]  8571.5714  8775.6327  8979.6939  9183.7551  9387.8163  9591.8776
+## [49]  9795.9388 10000.0000
+\end{verbatim}
+
+\paragraph{Повторение элементов
+вектора}\label{ux43fux43eux432ux442ux43eux440ux435ux43dux438ux435-ux44dux43bux435ux43cux435ux43dux442ux43eux432-ux432ux435ux43aux442ux43eux440ux430}
+
+Разница между функциями \texttt{rep()}.
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{times=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1 2 3 4 5 1 2 3 4 5 1 2 3 4 5
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{rep}\NormalTok{(}\DecValTok{1}\SpecialCharTok{:}\DecValTok{5}\NormalTok{, }\AttributeTok{each=}\DecValTok{3}\NormalTok{)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##  [1] 1 1 1 2 2 2 3 3 3 4 4 4 5 5 5
+\end{verbatim}
+
+Первое выражение повторяет весь вектор 1:5 три раза. Второе выражение
+повторяет каждый элемент вектора три раза.
+
+\end{document}
